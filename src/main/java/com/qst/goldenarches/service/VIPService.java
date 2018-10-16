@@ -16,4 +16,12 @@ public interface VIPService {
 	 * @return		返回整个会员信息
 	 */
 	VIP selBalance(String phone);
+
+	/**
+	 * 根据手机号修改账户余额，超级管理员的功能
+	 * @param phone		手机号
+	 * @param balance	修改后的余额
+	 * @return			返回修改的行数
+	 */
+	int updBalance(String phone,double balance);
 }

@@ -3,10 +3,27 @@
 <html>
 <head>
     <title>注册/充值</title>
+    <script src="${APP_PATH}/jquery/jquery-2.1.1.min.js" ></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#submit").click(function () {
+                var name = $(":text").eq(0).val();
+                var phone = $(":text").eq(1).val();
+                var balance = $(":text").eq(2).val();
+                var msg = "请再次确认您的信息：\n姓名："+name+"\n手机号："+phone+"\n充值金额："+balance;
+                var conf = confirm(msg);
+                if(conf == true){
+                    $("form").submit();
+                }else{
+                    return false;
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <hr/>
-<form action="${APP_PATH}/addForm" method="post">
+<form action="${APP_PATH}/addForm" method="post" name="reg">
     <table style="margin: 0 auto">
         <tr>
             <td><label>姓名: </label></td>
@@ -23,7 +40,7 @@
 
         <tr>
             <td></td>
-            <td><input id="submit" type="submit" value="注册/充值"></td>
+            <td><a href="" id="submit"><button>注册/充值</button></a> </td>
         </tr>
     </table>
 </form>
