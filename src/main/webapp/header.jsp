@@ -22,9 +22,9 @@
             $("button").eq(2).click(function () {
                 location.href="${APP_PATH}/showBalance.jsp";
             });
-            $("button").eq(3).click(function () {
-                location.href="${APP_PATH}/admin/main";
-            });
+            /*$("button").eq(3).click(function () {
+                //location.href="{APP_PATH}/admin/main";
+            });*/
         });
     </script>
 </head>
@@ -50,7 +50,7 @@
         <button>返回首页</button>
         <button>注册/充值</button>
         <button>查询余额</button>
-        <button>后台管理</button>
+        <a target="_blank" href="${APP_PATH}/admin/main" style="color: black"><button>后台管理</button></a>
     </div>
 </div>
 </body>

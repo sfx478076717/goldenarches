@@ -94,6 +94,12 @@
             });
             /**分页查询**/
             pageQuery(1);
+            $("#memberData").on("click",".update",function () {
+                var phone = $(this).parent("td").prevAll("td").eq(0).text();
+                var balance = prompt("请输入修改后的余额。");
+                location.href="/update?phone="+phone+"&balance="+balance;
+                return false;
+            })
 
         });
         /**根据创建时间排序**/
@@ -134,7 +140,7 @@
                 },
                 success : function(result) {
                     layer.close(loadingIndex);
-                    console.log(result.extend.pageInfo); ///测试，t
+                    console.log(result.extend.pageInfo); ///测试
                     if ( result.code==100 ) {
                         // 局部刷新页面数据
                         var tableContent = "";
@@ -146,7 +152,7 @@
                             tableContent += '  <td>'+(i+1)+'</td>';
                             tableContent += '  <td>'+member.name+'</td>';
                             tableContent += '  <td>'+member.phone+'</td>';
-                            tableContent += '  <td>'+member.balance+'</td>';
+                            tableContent += '  <td><a class="update">'+member.balance+'</a></td>';
                             tableContent += '  <td>'+member.createTime+'</td>';
                             tableContent += '</tr>';
                         });
@@ -176,6 +182,10 @@
                     }
                 }
             });
+        }
+
+        function updateFunc(balance){
+            alert(balance);
         }
     </script>
   </body>

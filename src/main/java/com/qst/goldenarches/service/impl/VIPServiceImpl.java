@@ -35,5 +35,13 @@ public class VIPServiceImpl implements VIPService {
 		return vipMapper.selByPhone(phone);
 	}
 
+	public int updBalance(String phone,double balance) {
+		VIP vip = new VIP();
+		vip.setPhone(phone);
+		vip.setBalance(balance);
+		int index = vipMapper.updVIPByPhone(vip);
+		return index;
+	}
+
 
 }
