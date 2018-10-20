@@ -206,9 +206,7 @@ public class ProductController {
     public String show(@RequestParam(value = "pageNum",defaultValue = "1")String pageNum, String category,HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html;charset=UTF-8");
         PageInfo pageInfo = productService.showPage(pageNum,category);
-        /*PageHelper.startPage(Integer.parseInt(pageNum),6);
-        List<Product> products =productService.getAll(null);
-        pageInfo.setList(products);*/
+        request.setAttribute("hint","1");
         request.setAttribute("pageInfo",pageInfo);
         request.setAttribute("category",productService.getCategory());
         return "forward:/main.jsp";

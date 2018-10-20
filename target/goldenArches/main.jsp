@@ -24,8 +24,14 @@
         var category = "${pageInfo.category}";//当前显示的商品类别
         var map = {};//把添加的商品的id和数量以键值对的方式存入map集合中
         var totalPrice = 0;//已添加商品总价
+        var hint = "${hint}";
 
         $(function () {
+
+            if (hint == ""){
+                location.href="${APP_PATH}/product/show";
+            }
+
 
             //判断接收的信息是否为空，不为空则弹出提示框提醒。
             if(message != ""){
